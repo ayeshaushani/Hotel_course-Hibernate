@@ -61,4 +61,15 @@ public class StudentTm {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        return "StudentTm{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", contact='" + contact + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }
