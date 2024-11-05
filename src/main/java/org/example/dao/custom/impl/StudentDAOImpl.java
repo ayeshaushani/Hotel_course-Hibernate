@@ -34,19 +34,25 @@ public class StudentDAOImpl implements StudentDAO {
         }
     }
 
+
     @Override
-    public  String getCurrentId() throws SQLException, IOException {
+    public String getCurrentId() throws SQLException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
-        String hql = "SELECT MAX(CAST(SUBSTRING(s.id, 3) AS integer)) FROM Student s";
 
+        String hql = "SELECT MAX(s.id) FROM Student s";
         Query query = session.createQuery(hql);
-       // String id = (String) query.uniqueResult();
-        Integer id = (Integer) query.uniqueResult();
-        String currentId = id.toString();
-        System.out.println(currentId);
-        return currentId;
+        Integer maxId = (Integer) query.uniqueResult();
+
+        if (maxId == null) {
+            maxId = 0;
+        }
+
+        // Return new id in a format like ST001, ST002, etc.
+        String newId = "ST" + String.format("%03d", maxId + 1);
+        return newId;
     }
+
 
     public boolean update(Student entity) {
         try {
