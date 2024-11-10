@@ -2,9 +2,7 @@ package org.example.dao.custom.impl;
 
 import javafx.scene.control.Alert;
 import org.example.config.FactoryConfiguration;
-import org.example.dao.SQLUtil;
 import org.example.dao.custom.StudentDAO;
-import org.example.dto.StudentDTO;
 import org.example.entity.Student;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -12,7 +10,6 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -35,7 +32,7 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
 
-    @Override
+   /* @Override
     public String getCurrentId() throws SQLException, IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
@@ -52,7 +49,7 @@ public class StudentDAOImpl implements StudentDAO {
         String newId = "ST" + String.format("%03d", maxId + 1);
         return newId;
     }
-
+*/
 
     public boolean update(Student entity) {
         try {
@@ -70,7 +67,12 @@ public class StudentDAOImpl implements StudentDAO {
     }
 
     @Override
-    public Student searchId(String id) throws IOException {
+    public boolean delete(String id) {
+        return false;
+    }
+
+    @Override
+    public Student searchId(int id) throws IOException {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -91,8 +93,8 @@ public class StudentDAOImpl implements StudentDAO {
         List<Student> students = query.list();
         return students;
     }
-
-    public boolean delete(String id) {
+   @Override
+    public boolean delete(int id) {
         try {
             Session session = FactoryConfiguration.getInstance().getSession();
             Transaction transaction = session.beginTransaction();

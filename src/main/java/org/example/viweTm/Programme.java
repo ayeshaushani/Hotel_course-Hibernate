@@ -1,5 +1,4 @@
 package org.example.viweTm;
 
-public class PaymentTm {
-
+public class Programme {
 }

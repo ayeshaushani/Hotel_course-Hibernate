@@ -1,6 +1,7 @@
 package org.example.dao;
 
 import org.example.dao.custom.impl.StudentDAOImpl;
+import org.example.dao.custom.impl.UserDAOImpl;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -12,14 +13,15 @@ public class DAOFactory {
     }
 
     public enum DAOTypes{
-        Student, Programs,Registration, Users
+        STUDENT,USER,COURSE,REGISTRATION
     }
 
     public SuperDAO getDAO(DAOTypes daoTypes){
         switch (daoTypes){
-            case Student:
+            case STUDENT:
                 return  new StudentDAOImpl();
-
+            case USER:
+                return new UserDAOImpl();
             /*case Item:
                 return new ItemDAOImpl();
 

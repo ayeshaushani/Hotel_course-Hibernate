@@ -1,14 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.UserForm"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="child" prefHeight="860.0" prefWidth="1045.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.controller.usersController">
+   <children>
+      <Text fx:id="topic" fill="#f28407" layoutX="389.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER MANAGMENT">
+         <font>
+            <Font name="Dyuthi Regular" size="45.0" />
+         </font>
+      </Text>
+      <TextField fx:id="usernametxt" layoutX="78.0" layoutY="266.0" prefHeight="32.0" prefWidth="398.0" />
+      <TextField fx:id="passwroddtxt" layoutX="81.0" layoutY="334.0" prefHeight="32.0" prefWidth="398.0" />
+      <TextField fx:id="roletxt" layoutX="79.0" layoutY="393.0" prefHeight="32.0" prefWidth="398.0" />
+      <Text fx:id="un" layoutX="81.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="lntext" layoutX="79.0" layoutY="331.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="role" layoutX="78.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Role">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button layoutX="79.0" layoutY="480.0" mnemonicParsing="false" onAction="#saveOnActionStudent" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: green;" text="Save">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <TableView fx:id="UserTable" layoutX="104.0" layoutY="558.0" prefHeight="200.0" prefWidth="844.0">
+         <columns>
+            <TableColumn fx:id="colid" prefWidth="144.0" text="ID" />
+            <TableColumn fx:id="colUserName" prefWidth="237.0" text="Name" />
+            <TableColumn fx:id="colUserPassword" prefWidth="215.0" text="User PassWord" />
+            <TableColumn fx:id="colUserRole" prefWidth="247.0" text="User Role" />
+         </columns>
+      </TableView>
+      <Text fx:id="idtext" layoutX="81.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID :" />
+      <TextField fx:id="userid" layoutX="79.0" layoutY="204.0" onKeyPressed="#loadTheTextField" prefHeight="26.0" prefWidth="123.0" />
+      <Button layoutX="205.0" layoutY="480.0" mnemonicParsing="false" onAction="#DeleteOnActionStudent" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: red;" text="Delete">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button layoutX="332.0" layoutY="480.0" mnemonicParsing="false" onAction="#UpdateOnActionStudent" prefHeight="38.0" prefWidth="94.0" style="-fx-background-color: yellow;" text="Update">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
 </AnchorPane>

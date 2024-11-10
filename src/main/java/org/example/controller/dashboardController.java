@@ -15,8 +15,17 @@ public class dashboardController {
     public Label corscont;
     public AnchorPane child;
     public AnchorPane parent;
+    public Label lbltime;
+    public Label lbldate;
 
     public void btnUserOnAction(ActionEvent event) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/userForm.fxml"));
+            loadWindow(anchorPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -32,10 +41,24 @@ public class dashboardController {
     }
 
     public void btnCourseOnAction(ActionEvent event) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/courseForm.fxml"));
+            loadWindow(anchorPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void btnPaymentOnAction(ActionEvent event) {
+        AnchorPane anchorPane = null;
+        try {
+            anchorPane = FXMLLoader.load(getClass().getResource("/view/paymentForm.fxml"));
+            loadWindow(anchorPane);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -48,7 +71,7 @@ public class dashboardController {
 
     }
     private void loadWindow(AnchorPane anchorPane) {
-        parent.getChildren().clear();
-        parent.getChildren().add(anchorPane);
+        child.getChildren().clear();
+        child.getChildren().add(anchorPane);
     }
 }

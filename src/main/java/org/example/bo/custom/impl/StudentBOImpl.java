@@ -13,22 +13,17 @@ import java.util.List;
 
 public class StudentBOImpl implements StudentBO {
 
-    StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.Student);
+    StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.STUDENT);
 
     public boolean saveStudent(StudentDTO studentDTO) throws IOException {
         return studentDAO.save( new Student(studentDTO.getId(),studentDTO.getName(), studentDTO.getAddress(),studentDTO.getContact(),studentDTO.getEmail()));
     }
-
-    public String getCurrentStudentId() throws SQLException, IOException {
-        return studentDAO.getCurrentId();
-    }
-
-    public boolean updateStudent(StudentDTO studentDTO) {
+    public boolean updateStudent(StudentDTO studentDTO) throws IOException {
         return studentDAO.update(new Student(studentDTO.getId(),studentDTO.getName(), studentDTO.getAddress(),studentDTO.getContact(),studentDTO.getEmail()));
     }
 
     @Override
-    public StudentDTO searchStudentId(String id) throws IOException {
+    public StudentDTO searchStudentId(int id) throws IOException {
         Student student = studentDAO.searchId(id);
         return new StudentDTO(student.getId(),student.getName(),student.getAddress(),student.getContact(),student.getEmail());
     }
@@ -46,9 +41,11 @@ public class StudentBOImpl implements StudentBO {
         return studentDTOS;
     }
 
-    public boolean delete(String id){
+    @Override
+    public boolean deleteStudent(int id) throws IOException {
         return studentDAO.delete(id);
     }
+
 
 
 }

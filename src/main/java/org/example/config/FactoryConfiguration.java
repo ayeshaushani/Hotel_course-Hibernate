@@ -2,6 +2,7 @@ package org.example.config;
 
 import org.example.entity.Student;
 
+import org.example.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -24,6 +25,7 @@ public class FactoryConfiguration {
 
             // Add annotated classes
             configuration.addAnnotatedClass(Student.class);
+            configuration.addAnnotatedClass(User.class);
 
 
 
